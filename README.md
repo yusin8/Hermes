@@ -7,11 +7,12 @@ The Agent Control Room is a sidecar repo/folder that documents and governs your 
 ## Positioning
 
 ```text
-Control Room first.
-One agent second.
-Specialists third.
-Orchestrator fourth.
-Automation last.
+Create or choose a VPS.
+Bootstrap the Agent Control Room.
+Register one Hermes agent.
+Add direct specialists when roles become clear.
+Add an orchestrator when you want one front door.
+Automate only after the manual system works.
 ```
 
 ## Mental Model
@@ -100,6 +101,7 @@ agent-control-room/
     security.md
     task-bus.md
     orchestrator.md
+    starter-guide.md
   templates/
     agent/
       inventory.md
@@ -115,10 +117,10 @@ agent-control-room/
       task-template.md
       result-template.md
   skills/
+    setup-control-room/
     agent-control-room/
     agent-task-router/
     agent-registry-manager/
-    agent-result-reviewer/
     agent-backup-manager/
     agent-security-auditor/
     agent-team-cron-planner/
@@ -131,13 +133,17 @@ agent-control-room/
 
 ## Quick Start
 
-1. Clone or use this repo as a template.
-2. Copy `templates/agent/` into `agents/<your-agent-name>/`.
-3. Fill in `inventory.md`, `docker.md`, `env-map.md`, `runbook.md`, and `backup.md`.
-4. Keep raw secrets out of the control room.
-5. Store live Hermes data in `/srv/<agent-name>/data` or your preferred runtime path.
-6. Add specialist agents only when roles become clear.
-7. Add an orchestrator only when direct specialist usage becomes annoying.
+1. Create or choose an Ubuntu/Debian VPS.
+2. Clone this repo onto the VPS, usually at `/root/agent-control-room`.
+3. Link or install the bundled skills into your agent tool.
+4. Copy `templates/agent/` into `agents/<your-agent-name>/`.
+5. Fill in `inventory.md`, `docker.md`, `env-map.md`, `runbook.md`, and `backup.md`.
+6. Keep raw secrets out of the control room.
+7. Store live Hermes data in `/srv/<agent-name>/data` or your preferred runtime path.
+8. Add specialist agents only when roles become clear.
+9. Add an orchestrator only when direct specialist usage becomes annoying.
+
+See `docs/starter-guide.md` for the recommended VPS bootstrap flow.
 
 ## Security Rule
 
