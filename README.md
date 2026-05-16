@@ -186,6 +186,8 @@ agent-team-cron-planner
 ```text
 agent-control-room/
   README.md
+  agents/
+    .gitkeep
   docs/
     architecture.md
     levels.md
@@ -194,6 +196,10 @@ agent-control-room/
     task-bus.md
     orchestrator.md
     starter-guide.md
+  shared/
+    api-keys-sop.md
+    commands.md
+    security.md
   templates/
     agent/
       inventory.md
