@@ -190,6 +190,7 @@ agent-control-room/
     .gitkeep
   docs/
     architecture.md
+    control-room-v1-operating-model.md
     levels.md
     naming.md
     security.md
@@ -289,10 +290,11 @@ git clone https://github.com/shannhk/hermes-agent-control-room.git /root/agent-c
 cd /root/agent-control-room
 ```
 
-Read the starter guide:
+Read the starter guide and operating model:
 
 ```bash
 cat docs/starter-guide.md
+cat docs/control-room-v1-operating-model.md
 ```
 
 Register your first agent:

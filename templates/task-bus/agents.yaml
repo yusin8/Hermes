@@ -1,11 +1,28 @@
 agents:
+  defaults:
+    routing:
+      primary_dialogue_model: openai/gpt-5.5-class
+      auxiliary_model: gemini/flash-class
+      coding_verification_model: anthropic/claude-opus-class
+    approval_policy:
+      explicit_approval_required_for:
+        - production deploys
+        - destructive file operations
+        - credential create/rotate/revoke
+        - firewall or network exposure changes
+        - backup or snapshot deletion
+
   hermes-seo:
     role: SEO specialist
-    docs: /root/vps-agents/agents/hermes-seo
+    docs: /root/agent-control-room/agents/hermes-seo
     data_dir: /srv/hermes-seo/data
     task_queue: /srv/agent-bus/tasks/seo
     gateway_url: http://127.0.0.1:8643
     dashboard_url: http://127.0.0.1:9120
+    routing:
+      primary: openai/gpt-5.5-class
+      auxiliary: gemini/flash-class
+      escalation_for_final_review: openai/gpt-5.5-class
     allowed_work:
       - technical SEO audits
       - content briefs
@@ -16,14 +33,72 @@ agents:
 
   hermes-dev:
     role: Code and site specialist
-    docs: /root/vps-agents/agents/hermes-dev
+    docs: /root/agent-control-room/agents/hermes-dev
     data_dir: /srv/hermes-dev/data
     task_queue: /srv/agent-bus/tasks/dev
     gateway_url: http://127.0.0.1:8646
     dashboard_url: http://127.0.0.1:9123
+    routing:
+      primary: openai/gpt-5.5-class
+      coding_cross_validation: openai/codex
+      high_stakes_verification: anthropic/claude-opus-class
     allowed_work:
       - code changes
       - debugging
       - pull requests
     forbidden_work:
       - production deploys without approval
+
+  hermes-cmo:
+    role: Marketing specialist
+    docs: /root/agent-control-room/agents/hermes-cmo
+    data_dir: /srv/hermes-cmo/data
+    task_queue: /srv/agent-bus/tasks/cmo
+    gateway_url: http://127.0.0.1:8647
+    dashboard_url: http://127.0.0.1:9124
+    routing:
+      primary: openai/gpt-5.5-class
+      auxiliary: gemini/flash-class
+    allowed_work:
+      - campaign planning
+      - messaging strategy
+      - channel briefs
+    forbidden_work:
+      - production publishing without approval
+
+  hermes-ops:
+    role: VPS and runtime operations specialist
+    docs: /root/agent-control-room/agents/hermes-ops
+    data_dir: /srv/hermes-ops/data
+    task_queue: /srv/agent-bus/tasks/ops
+    gateway_url: http://127.0.0.1:8648
+    dashboard_url: http://127.0.0.1:9125
+    routing:
+      primary: openai/gpt-5.5-class
+      high_stakes_verification: anthropic/claude-opus-class
+    allowed_work:
+      - health checks
+      - backup audits
+      - runtime diagnostics
+    forbidden_work:
+      - firewall/public exposure changes without approval
+      - credential rotation without approval
+
+  hermes-orchestrator:
+    role: Delegation and synthesis front door
+    docs: /root/agent-control-room/agents/hermes-orchestrator
+    data_dir: /srv/hermes-orchestrator/data
+    task_queue: /srv/agent-bus/tasks/orchestrator
+    gateway_url: http://127.0.0.1:8644
+    dashboard_url: http://127.0.0.1:9121
+    routing:
+      primary: openai/gpt-5.5-class
+      auxiliary: gemini/flash-class
+      high_stakes_verification: anthropic/claude-opus-class
+    allowed_work:
+      - task routing
+      - specialist synthesis
+      - operator-facing summaries
+    forbidden_work:
+      - bypass specialist source-of-truth tooling
+      - publish, delete, rotate keys, or deploy without explicit approval

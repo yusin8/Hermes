@@ -1,8 +1,15 @@
 ---
 task_id: TASK-YYYY-MM-DD-001
 completed_at: YYYY-MM-DDTHH:MM:SSZ
-completed_by: hermes-seo
-status: completed
+assignee: hermes-seo
+status: done # allowed: done | blocked | failed
+summary: "One-paragraph outcome summary."
+artifacts:
+  - "path/or/url"
+risks:
+  - "Known risk or residual uncertainty"
+next_actions:
+  - "Recommended follow-up"
 needs_orchestrator_review: true
 needs_user_approval: false
 ---
@@ -11,22 +18,22 @@ needs_user_approval: false
 
 Summarize the outcome.
 
-# Work Performed
+## Work Performed
 
 - 
 
-# Findings
+## Findings
 
 1. 
 
-# Artifacts
+## Artifacts
 
 - 
 
-# Risks / Assumptions
+## Risks
 
 - 
 
-# Recommended Next Action
+## Next Actions
 
 - 

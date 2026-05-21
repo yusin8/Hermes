@@ -15,4 +15,5 @@ google_token.json
 google_client_secret.json
 client_secret*.json
 node_modules/
+.omx/
 .DS_Store

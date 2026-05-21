@@ -10,7 +10,7 @@ services:
     volumes:
       - /srv/hermes-orchestrator/data:/opt/data
       - /srv/agent-bus:/srv/agent-bus
-      - /root/vps-agents:/root/vps-agents:ro
+      - /root/agent-control-room:/root/agent-control-room:ro
     environment:
       - HERMES_DASHBOARD=1
     deploy:
