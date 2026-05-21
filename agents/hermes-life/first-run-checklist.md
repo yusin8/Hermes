@@ -19,9 +19,14 @@ cd /home/ys/workspace/hermes-agent-control-room
 ./scripts/bootstrap-hermes-life.sh
 ```
 
-Then fill secrets:
+If you are not in sudoers, bootstrap automatically falls back to:
+- /home/$USER/srv/hermes-life
 
-- /srv/hermes-life/data/.env
+Then fill secrets in `<TARGET_ROOT>/data/.env`.
+Default target root:
+- /srv/hermes-life (with sudo)
+- /home/$USER/srv/hermes-life (no sudo)
+
   - OPENAI_API_KEY=<your_openai_key>
   - GEMINI_API_KEY=<your_gemini_key>
   - ANTHROPIC_API_KEY=<your_anthropic_key>
@@ -30,7 +35,7 @@ Then fill secrets:
 ## 2) Start container
 
 ```bash
-docker compose -f /srv/hermes-life/docker-compose.yml up -d
+docker compose -f <TARGET_ROOT>/docker-compose.yml up -d
 docker ps --filter name=hermes-life
 docker logs hermes-life --tail 100
 ```
@@ -79,6 +84,6 @@ Before production-impacting actions, require owner approval for:
 ## 7) Backup smoke test
 
 ```bash
-tar -czf /tmp/hermes-life-backup-$(date +%F).tgz -C /srv/hermes-life data
+tar -czf /tmp/hermes-life-backup-$(date +%F).tgz -C <TARGET_ROOT> data
 ls -lh /tmp/hermes-life-backup-*.tgz | tail -n 1
 ```

@@ -15,6 +15,7 @@
 ```bash
 cd /home/ys/workspace/hermes-agent-control-room
 ./scripts/bootstrap-hermes-life.sh
+# Check printed [OK] Target root and reuse it in docker compose commands.
 ```
 
 ## Check Status
