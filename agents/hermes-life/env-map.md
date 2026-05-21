@@ -13,7 +13,7 @@ This file records where secrets live, not their values.
 |---|---|---|---|---|---|
 | `OPENAI_API_KEY` | Main dialogue model | OpenAI | minimal required | `/srv/hermes-life/data/.env` | TBD |
 | `GEMINI_API_KEY` | Auxiliary/support tasks | Google/Gemini | minimal required | `/srv/hermes-life/data/.env` | TBD |
-| `ANTHROPIC_API_KEY` | High-stakes code verification | Anthropic | minimal required | `/srv/hermes-life/data/.env` | TBD |
+| `ANTHROPIC_API_KEY` | High-stakes code verification | Anthropic | minimal required (optional when Anthropic OAuth is configured via `hermes auth`) | `/srv/hermes-life/data/.env` | TBD |
 | `TELEGRAM_BOT_TOKEN` | Optional messaging gateway | Telegram | bot-scoped | `/srv/hermes-life/data/.env` | TBD |
 
 ## Model Routing Notes

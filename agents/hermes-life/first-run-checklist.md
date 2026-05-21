@@ -29,7 +29,7 @@ Default target root:
 
   - OPENAI_API_KEY=<your_openai_key>
   - GEMINI_API_KEY=<your_gemini_key>
-  - ANTHROPIC_API_KEY=<your_anthropic_key>
+  - ANTHROPIC_API_KEY=<your_anthropic_key>   # or leave empty if using `hermes auth add anthropic --type oauth`
   - TELEGRAM_BOT_TOKEN=<optional>
 
 ## 2) Start container
