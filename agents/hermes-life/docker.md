@@ -3,7 +3,7 @@
 ## Status
 
 - Container running: pending first deployment
-- Image: `nousresearch/hermes-agent:latest`
+- Image: `nousresearch/hermes-agent@sha256:b6e41c155d6bfce5ad83c5d0fec670086db8a43250e4511c9474134be5482d33`
 - Data dir: `/srv/hermes-life/data`
 - Started: pending
 
@@ -25,11 +25,14 @@
 
 ## Compose
 
-Start from `templates/docker/docker-compose.agent.yml` and set:
+Use generated compose file:
 
-- `container_name: hermes-life`
+- template copy source: `/home/ys/workspace/hermes-agent-control-room/deploy/hermes-life/docker-compose.yml`
+- runtime target: `/srv/hermes-life/docker-compose.yml`
+- container name: `hermes-life`
 - volume: `/srv/hermes-life/data:/opt/data`
-- host ports unique per agent
+- env: `/srv/hermes-life/data/.env` loaded via optional `env_file`
+- host ports: `127.0.0.1:8642`, `127.0.0.1:9119`
 
 ## Common Operations
 
@@ -47,3 +50,4 @@ docker compose -f /srv/hermes-life/docker-compose.yml up -d
 - Do not commit `.env` or token files.
 - Keep host ports unique per agent.
 - Prefer binding dashboards/API to `127.0.0.1` unless secured.
+- Keep compose hardening enabled: `read_only`, `cap_drop: [ALL]`, `no-new-privileges`.

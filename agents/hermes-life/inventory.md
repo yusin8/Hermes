@@ -9,7 +9,7 @@ Personal operator-facing assistant for daily coordination, planning, and synthes
 - Host: VPS (Ubuntu/Debian) or local Docker host
 - Deployment style: Docker container
 - Container name: `hermes-life`
-- Image: `nousresearch/hermes-agent:latest`
+- Image: `nousresearch/hermes-agent@sha256:b6e41c155d6bfce5ad83c5d0fec670086db8a43250e4511c9474134be5482d33`
 - Host data dir: `/srv/hermes-life/data`
 - Container data dir: `/opt/data`
 - Compose file: `/srv/hermes-life/docker-compose.yml`

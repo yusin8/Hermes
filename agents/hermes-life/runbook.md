@@ -7,6 +7,16 @@
 - CLI: `hermes`
 - Dashboard: `http://127.0.0.1:9119` (if port mapped)
 
+## First Deployment
+
+- Follow `first-run-checklist.md` in this directory.
+- Bootstrap runtime artifacts:
+
+```bash
+cd /home/ys/workspace/hermes-agent-control-room
+./scripts/bootstrap-hermes-life.sh
+```
+
 ## Check Status
 
 ```bash
